@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>KOICA Exhibition Hall - Audio Guide</title>
+  
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  
+  <!-- Outer Mobile Container Simulation -->
+  <div class="mobile-wrapper">
+    
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-left">
+        <!-- Back Button (hidden on list page) -->
+        <button id="back-btn" class="back-btn hidden" aria-label="Go Back">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+        <h1 class="header-title" id="header-title-text">KOICA Exhibition Hall</h1>
+      </div>
+      
+      <!-- Language Selector -->
+      <div class="lang-selector-container">
+        <button id="lang-btn" class="lang-btn" aria-haspopup="true" aria-expanded="false">
+          <span class="flag-icon" id="current-flag">
+            <!-- Default KR Flag -->
+            <svg width="20" height="14" viewBox="-72 -48 144 96">
+              <rect x="-72" y="-48" width="144" height="96" fill="#ffffff" stroke="#cccccc" stroke-width="0.5"/>
+              <g transform="rotate(-33.69)">
+                <rect x="-24" y="-24" width="48" height="24" fill="#cd2e3a"/>
+                <rect x="-24" y="0" width="48" height="24" fill="#0047a0"/>
+                <circle cx="-12" cy="0" r="12" fill="#0047a0"/>
+                <circle cx="12" cy="0" r="12" fill="#cd2e3a"/>
+              </g>
+              <!-- Geon (top-left) -->
+              <g transform="rotate(-33.69)">
+                <g transform="translate(-42,0)">
+                  <rect x="-2" y="-12" width="4" height="24" fill="#000000"/>
+                  <rect x="2" y="-12" width="4" height="24" fill="#000000"/>
+                  <rect x="6" y="-12" width="4" height="24" fill="#000000"/>
+                </g>
+                <!-- Gon (bottom-right) -->
+                <g transform="translate(42,0)">
+                  <rect x="-6" y="-12" width="4" height="11" fill="#000000"/>
+                  <rect x="-6" y="1" width="4" height="11" fill="#000000"/>
+                  <rect x="-2" y="-12" width="4" height="11" fill="#000000"/>
+                  <rect x="-2" y="1" width="4" height="11" fill="#000000"/>
+                  <rect x="2" y="-12" width="4" height="11" fill="#000000"/>
+                  <rect x="2" y="1" width="4" height="11" fill="#000000"/>
+                </g>
+              </g>
+              <!-- Gam (top-right) -->
+              <g transform="rotate(33.69)">
+                <g transform="translate(42,0)">
+                  <rect x="-6" y="-12" width="4" height="11" fill="#000000"/>
+                  <rect x="-6" y="1" width="4" height="11" fill="#000000"/>
+                  <rect x="-2" y="-12" width="4" height="24" fill="#000000"/>
+                  <rect x="2" y="-12" width="4" height="11" fill="#000000"/>
+                  <rect x="2" y="1" width="4" height="11" fill="#000000"/>
+                </g>
+                <!-- Ri (bottom-left) -->
+                <g transform="translate(-42,0)">
+                  <rect x="-6" y="-12" width="4" height="24" fill="#000000"/>
+                  <rect x="-2" y="-12" width="4" height="11" fill="#000000"/>
+                  <rect x="-2" y="1" width="4" height="11" fill="#000000"/>
+                  <rect x="2" y="-12" width="4" height="24" fill="#000000"/>
+                </g>
+              </g>
+            </svg>
+          </span>
+          <span id="current-lang-text">한국어</span>
+          <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        
+        <!-- Dropdown Menu -->
+        <ul id="lang-dropdown" class="lang-dropdown hidden" role="menu">
+          <li role="menuitem" data-lang="ko" class="active">
+            <span class="flag-icon">
+              <!-- KR Flag -->
+              <svg width="20" height="14" viewBox="-72 -48 144 96">
+                <rect x="-72" y="-48" width="144" height="96" fill="#ffffff" stroke="#cccccc" stroke-width="0.5"/>
+                <g transform="rotate(-33.69)">
+                  <rect x="-24" y="-24" width="48" height="24" fill="#cd2e3a"/>
+                  <rect x="-24" y="0" width="48" height="24" fill="#0047a0"/>
+                  <circle cx="-12" cy="0" r="12" fill="#0047a0"/>
+                  <circle cx="12" cy="0" r="12" fill="#cd2e3a"/>
+                </g>
+                <!-- Geon (top-left) -->
+                <g transform="rotate(-33.69)">
+                  <g transform="translate(-42,0)">
+                    <rect x="-2" y="-12" width="4" height="24" fill="#000000"/>
+                    <rect x="2" y="-12" width="4" height="24" fill="#000000"/>
+                    <rect x="6" y="-12" width="4" height="24" fill="#000000"/>
+                  </g>
+                  <!-- Gon (bottom-right) -->
+                  <g transform="translate(42,0)">
+                    <rect x="-6" y="-12" width="4" height="11" fill="#000000"/>
+                    <rect x="-6" y="1" width="4" height="11" fill="#000000"/>
+                    <rect x="-2" y="-12" width="4" height="11" fill="#000000"/>
+                    <rect x="-2" y="1" width="4" height="11" fill="#000000"/>
+                    <rect x="2" y="-12" width="4" height="11" fill="#000000"/>
+                    <rect x="2" y="1" width="4" height="11" fill="#000000"/>
+                  </g>
+                </g>
+                <!-- Gam (top-right) -->
+                <g transform="rotate(33.69)">
+                  <g transform="translate(42,0)">
+                    <rect x="-6" y="-12" width="4" height="11" fill="#000000"/>
+                    <rect x="-6" y="1" width="4" height="11" fill="#000000"/>
+                    <rect x="-2" y="-12" width="4" height="24" fill="#000000"/>
+                    <rect x="2" y="-12" width="4" height="11" fill="#000000"/>
+                    <rect x="2" y="1" width="4" height="11" fill="#000000"/>
+                  </g>
+                  <!-- Ri (bottom-left) -->
+                  <g transform="translate(-42,0)">
+                    <rect x="-6" y="-12" width="4" height="24" fill="#000000"/>
+                    <rect x="-2" y="-12" width="4" height="11" fill="#000000"/>
+                    <rect x="-2" y="1" width="4" height="11" fill="#000000"/>
+                    <rect x="2" y="-12" width="4" height="24" fill="#000000"/>
+                  </g>
+                </g>
+              </svg>
+            </span>
+            <span>한국어</span>
+          </li>
+          <li role="menuitem" data-lang="en">
+            <span class="flag-icon">
+              <!-- US Flag -->
+              <svg width="20" height="14" viewBox="0 0 30 20">
+                <rect width="30" height="20" fill="#3C3B6E"/>
+                <!-- Stripes -->
+                <g fill="#B22234">
+                  <rect y="1.54" width="30" height="1.54"/>
+                  <rect y="4.62" width="30" height="1.54"/>
+                  <rect y="7.69" width="30" height="1.54"/>
+                  <rect y="10.77" width="30" height="1.54"/>
+                  <rect y="13.85" width="30" height="1.54"/>
+                  <rect y="16.92" width="30" height="1.54"/>
+                </g>
+                <g fill="#ffffff">
+                  <rect width="30" height="1.54"/>
+                  <rect y="3.08" width="30" height="1.54"/>
+                  <rect y="6.15" width="30" height="1.54"/>
+                  <rect y="9.23" width="30" height="1.54"/>
+                  <rect y="12.31" width="30" height="1.54"/>
+                  <rect y="15.38" width="30" height="1.54"/>
+                  <rect y="18.46" width="30" height="1.54"/>
+                </g>
+                <!-- Canton -->
+                <rect width="12" height="10.77" fill="#3C3B6E"/>
+                <!-- Stars (Simplified representation for layout) -->
+                <circle cx="2" cy="2" r="0.5" fill="#fff"/>
+                <circle cx="4" cy="2" r="0.5" fill="#fff"/>
+                <circle cx="6" cy="2" r="0.5" fill="#fff"/>
+                <circle cx="8" cy="2" r="0.5" fill="#fff"/>
+                <circle cx="10" cy="2" r="0.5" fill="#fff"/>
+                <circle cx="3" cy="4" r="0.5" fill="#fff"/>
+                <circle cx="5" cy="4" r="0.5" fill="#fff"/>
+                <circle cx="7" cy="4" r="0.5" fill="#fff"/>
+                <circle cx="9" cy="4" r="0.5" fill="#fff"/>
+                <circle cx="2" cy="6" r="0.5" fill="#fff"/>
+                <circle cx="4" cy="6" r="0.5" fill="#fff"/>
+                <circle cx="6" cy="6" r="0.5" fill="#fff"/>
+                <circle cx="8" cy="6" r="0.5" fill="#fff"/>
+                <circle cx="10" cy="6" r="0.5" fill="#fff"/>
+                <circle cx="3" cy="8" r="0.5" fill="#fff"/>
+                <circle cx="5" cy="8" r="0.5" fill="#fff"/>
+                <circle cx="7" cy="8" r="0.5" fill="#fff"/>
+                <circle cx="9" cy="8" r="0.5" fill="#fff"/>
+              </svg>
+            </span>
+            <span>English</span>
+          </li>
+        </ul>
+      </div>
+    </header>
+    
+    <!-- MAIN CONTAINER -->
+    <main class="main-content" id="main-content">
+      
+      <!-- 1. LIST VIEW -->
+      <section id="list-view" class="view active">
+        <div class="guide-list" id="guide-list-container">
+          <!-- Guide items will be dynamically rendered here -->
+          <div class="loading-spinner"></div>
+        </div>
+      </section>
+      
+      <!-- 2. DETAIL VIEW -->
+      <section id="detail-view" class="view hidden">
+        
+        <!-- Share Action Button -->
+        <div class="share-container">
+          <button id="share-btn" class="share-btn" aria-label="Share">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Earphone Alert Box -->
+        <div class="earphone-alert">
+          <div class="earphone-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+            </svg>
+          </div>
+          <span id="earphone-alert-text">전시관 내에서는 이어폰을 이용해주세요.</span>
+        </div>
+        
+        <!-- Audio Player Container -->
+        <div class="audio-player-container">
+          <audio id="audio-element" controls preload="auto"></audio>
+        </div>
+        
+        <!-- Detail Content -->
+        <article class="detail-article">
+          <h2 id="detail-title" class="detail-title">01. KOICA 개발협력전시관 소개</h2>
+          <div id="detail-paragraphs" class="detail-body">
+            <!-- Paragraphs will be dynamically injected here -->
+          </div>
+        </article>
+        
+        <!-- Top Button -->
+        <div class="top-button-container">
+          <button id="top-btn" class="top-btn">
+            <span class="top-arrow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="18 15 12 9 6 15"></polyline>
+              </svg>
+            </span>
+            <span class="top-text">TOP</span>
+          </button>
+        </div>
+        
+        <!-- Bottom Navigation Footer -->
+        <nav class="detail-nav">
+          <button id="prev-btn" class="nav-arrow-btn">
+            <span class="nav-arrow-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </span>
+            <span id="nav-prev-text">PREV</span>
+          </button>
+          
+          <button id="list-btn" class="nav-list-btn">LIST</button>
+          
+          <button id="next-btn" class="nav-arrow-btn">
+            <span id="nav-next-text">NEXT</span>
+            <span class="nav-arrow-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </span>
+          </button>
+        </nav>
+        
+      </section>
+      
+    </main>
+  </div>
+  
+  <!-- Web application logic -->
+  <script src="js/app.js"></script>
+</body>
+</html>

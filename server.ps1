@@ -5,7 +5,7 @@ $port = 3000
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add("http://localhost:$port/")
 
-$publicDir = Join-Path $PSScriptRoot "public"
+$publicDir = $PSScriptRoot
 
 function Get-MimeType($extension) {
     switch ($extension) {
@@ -132,6 +132,14 @@ while ($running) {
         $relativeFile = $urlPath.TrimStart('/')
         if ($relativeFile -eq "") {
             $relativeFile = "index.html"
+        }
+
+        # Block access to server scripts or configuration files
+        if ($relativeFile -match "\.(ps1|json|md)$" -and $relativeFile -ne "data/guides.json") {
+            $response.StatusCode = 403
+            Write-Host "[$timestamp] $httpMethod $rawUrl - 403 Forbidden (Blocked system file)" -ForegroundColor DarkRed
+            $response.Close()
+            continue
         }
         
         $filePath = Join-Path $publicDir $relativeFile
