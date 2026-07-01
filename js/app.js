@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Fetch data from the API server
     try {
-      const response = await fetch('/api/guides');
+      const response = await fetch('data/guides.json');
       if (!response.ok) throw new Error('Failed to load data');
       guidesData = await response.json();
       
