@@ -57,48 +57,48 @@ document.addEventListener('DOMContentLoaded', () => {
     `,
     flagKr: `
       <svg width="20" height="14" viewBox="-72 -48 144 96">
-         <rect x="-72" y="-48" width="144" height="96" fill="#ffffff" stroke="#cccccc" stroke-width="0.5"/>
-         <g transform="rotate(-33.69)">
-           <rect x="-24" y="-24" width="48" height="24" fill="#cd2e3a"/>
-           <rect x="-24" y="0" width="48" height="24" fill="#0047a0"/>
-           <circle cx="-12" cy="0" r="12" fill="#0047a0"/>
-           <circle cx="12" cy="0" r="12" fill="#cd2e3a"/>
-         </g>
-         <!-- Geon (top-left) -->
-         <g transform="rotate(-33.69)">
-           <g transform="translate(-42,0)">
-             <rect x="-2" y="-12" width="4" height="24" fill="#000000"/>
-             <rect x="2" y="-12" width="4" height="24" fill="#000000"/>
-             <rect x="6" y="-12" width="4" height="24" fill="#000000"/>
-           </g>
-           <!-- Gon (bottom-right) -->
-           <g transform="translate(42,0)">
-             <rect x="-6" y="-12" width="4" height="11" fill="#000000"/>
-             <rect x="-6" y="1" width="4" height="11" fill="#000000"/>
-             <rect x="-2" y="-12" width="4" height="11" fill="#000000"/>
-             <rect x="-2" y="1" width="4" height="11" fill="#000000"/>
-             <rect x="2" y="-12" width="4" height="11" fill="#000000"/>
-             <rect x="2" y="1" width="4" height="11" fill="#000000"/>
-           </g>
-         </g>
-         <!-- Gam (top-right) -->
-         <g transform="rotate(33.69)">
-           <g transform="translate(42,0)">
-             <rect x="-6" y="-12" width="4" height="11" fill="#000000"/>
-             <rect x="-6" y="1" width="4" height="11" fill="#000000"/>
-             <rect x="-2" y="-12" width="4" height="24" fill="#000000"/>
-             <rect x="2" y="-12" width="4" height="11" fill="#000000"/>
-             <rect x="2" y="1" width="4" height="11" fill="#000000"/>
-           </g>
-           <!-- Ri (bottom-left) -->
-           <g transform="translate(-42,0)">
-             <rect x="-6" y="-12" width="4" height="24" fill="#000000"/>
-             <rect x="-2" y="-12" width="4" height="11" fill="#000000"/>
-             <rect x="-2" y="1" width="4" height="11" fill="#000000"/>
-             <rect x="2" y="-12" width="4" height="24" fill="#000000"/>
-           </g>
-         </g>
-       </svg>
+        <rect x="-72" y="-48" width="144" height="96" fill="#ffffff" stroke="#cccccc" stroke-width="0.5"/>
+        <g transform="rotate(-33.69)">
+          <rect x="-24" y="-24" width="48" height="24" fill="#cd2e3a"/>
+          <rect x="-24" y="0" width="48" height="24" fill="#0047a0"/>
+          <circle cx="-12" cy="0" r="12" fill="#0047a0"/>
+          <circle cx="12" cy="0" r="12" fill="#cd2e3a"/>
+        </g>
+        <!-- Geon (top-left) -->
+        <g transform="rotate(-33.69)">
+          <g transform="translate(-42,0)">
+            <rect x="-2" y="-12" width="4" height="24" fill="#000000"/>
+            <rect x="2" y="-12" width="4" height="24" fill="#000000"/>
+            <rect x="6" y="-12" width="4" height="24" fill="#000000"/>
+          </g>
+          <!-- Gon (bottom-right) -->
+          <g transform="translate(42,0)">
+            <rect x="-6" y="-12" width="4" height="11" fill="#000000"/>
+            <rect x="-6" y="1" width="4" height="11" fill="#000000"/>
+            <rect x="-2" y="-12" width="4" height="11" fill="#000000"/>
+            <rect x="-2" y="1" width="4" height="11" fill="#000000"/>
+            <rect x="2" y="-12" width="4" height="11" fill="#000000"/>
+            <rect x="2" y="1" width="4" height="11" fill="#000000"/>
+          </g>
+        </g>
+        <!-- Gam (top-right) -->
+        <g transform="rotate(33.69)">
+          <g transform="translate(42,0)">
+            <rect x="-6" y="-12" width="4" height="11" fill="#000000"/>
+            <rect x="-6" y="1" width="4" height="11" fill="#000000"/>
+            <rect x="-2" y="-12" width="4" height="24" fill="#000000"/>
+            <rect x="2" y="-12" width="4" height="11" fill="#000000"/>
+            <rect x="2" y="1" width="4" height="11" fill="#000000"/>
+          </g>
+          <!-- Ri (bottom-left) -->
+          <g transform="translate(-42,0)">
+            <rect x="-6" y="-12" width="4" height="24" fill="#000000"/>
+            <rect x="-2" y="-12" width="4" height="11" fill="#000000"/>
+            <rect x="-2" y="1" width="4" height="11" fill="#000000"/>
+            <rect x="2" y="-12" width="4" height="24" fill="#000000"/>
+          </g>
+        </g>
+      </svg>
     `,
     flagUs: `
       <svg width="20" height="14" viewBox="0 0 30 20">
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
       console.error('Error fetching guides:', error);
       guideListContainer.innerHTML = `
-        <div style="padding: 40px; text-align: center; color: var(--text-light);">
+        <div style="padding: 40px text-align: center; color: var(--text-light);">
           <p>데이터를 불러오지 못했습니다.</p>
           <p style="font-size: 13px; margin-top: 10px;">서버 연결을 확인해 주세요.</p>
         </div>
@@ -453,7 +453,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Handle stop/reset
   function stopTrack() {
     synth.cancel();
     window.activeUtterances = []; // Clean up GC helper array
@@ -515,6 +514,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     audioElement.addEventListener('pause', () => {
+      // If the audio paused naturally because it reached the end, do NOT pause the TTS guide
+      if (audioElement.ended) {
+        return;
+      }
       pauseTrack();
     });
 
